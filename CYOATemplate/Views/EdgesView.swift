@@ -62,9 +62,11 @@ struct EdgesView: View {
                                         interpretedSyntax: .inlineOnlyPreservingWhitespace
                                     )
                                 )
+                                
                             )
                                 .multilineTextAlignment(.trailing)
                         }
+                        .foregroundColor(.white)
                         .onTapGesture {
                             
                             // DEBUG

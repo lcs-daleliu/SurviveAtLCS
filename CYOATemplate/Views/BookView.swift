@@ -31,26 +31,35 @@ struct BookView: View {
             VStack {
 
                 if book.isBeingRead {
+                    VStack{
+                        HStack {
+                            Text("\(book.currentPageId!)")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                                .offset(x:20,y:55)
+                            Spacer()
+                                
+                            
+                        }
+                        
+                        
+                        PageView(
+                            viewModel: PageViewModel(book: book)
+                        )
+                        .offset(y:30)
+                    } .background(.dGreen)
+                        .ignoresSafeArea()
                     
-                    HStack {
-                        Text("\(book.currentPageId!)")
-                            .font(.largeTitle)
-                        Spacer()
-                    }
-                    .padding()
-                    
-                    PageView(
-                        viewModel: PageViewModel(book: book)
-                    )
-                    
-                } else {
+                }else {
                     CoverView()
                 }
 
             }
+            
             // Add our object to track state into the environment
             // so it is accessible to the other views in the app
             .environment(book)
+           
             // Toolbar to show buttons for various actions
             .toolbar {
                 
@@ -107,6 +116,7 @@ struct BookView: View {
         }
         // Dark / light mode toggle
         .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
+        
 
     }
 }

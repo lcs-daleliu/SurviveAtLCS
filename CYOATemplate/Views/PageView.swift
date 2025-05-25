@@ -43,7 +43,9 @@ struct PageView: View {
                             )
                         )
                     )
+                    .foregroundColor(.white)
                         .font(.title2)
+                        
                     
                     if let image = page.image {
                         
@@ -73,11 +75,13 @@ struct PageView: View {
                         EdgesView(
                             viewModel: EdgesViewModel(book: book)
                         )
+                        .padding(.bottom,40)
+                       
                         
                     }
                     
                     
-                    Spacer()
+                    
 
                 } else {
                     
@@ -87,9 +91,12 @@ struct PageView: View {
                 
             }
             .padding()
-        }
+            
 
+        }
+        
     }
+        
 }
 
 #Preview {
